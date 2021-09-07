@@ -13,7 +13,7 @@
     <artifactId>AccountSystemRepository</artifactId>
     <packaging>jar</packaging>
 
-
+    <!-- Repo has access to domain -->
     <dependencies>
         <dependency>
             <groupId>za.ac.nwu.acsys</groupId>
@@ -40,8 +40,11 @@
             <artifactId>ojdbc8</artifactId>
             <scope>compile</scope>
         </dependency>
-
-
+<!--        <dependency>-->
+<!--            <groupId>com.oracle</groupId>-->
+<!--            <artifactId>ojdbc7</artifactId>-->
+<!--            <scope>compile</scope>-->
+<!--        </dependency>-->
     </dependencies>
 
     

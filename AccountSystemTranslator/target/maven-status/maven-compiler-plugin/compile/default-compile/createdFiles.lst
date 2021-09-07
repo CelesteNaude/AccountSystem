@@ -1,2 +1,3 @@
-za\ac\nwu\acsys\translator\comp\AccountTypeTranslatorComp.class
+za\ac\nwu\acsys\translator\config\TranslatorConfig.class
+za\ac\nwu\acsys\translator\impl\AccountTypeTranslatorImpl.class
 za\ac\nwu\acsys\translator\AccountTypeTranslator.class

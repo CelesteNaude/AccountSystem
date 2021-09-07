@@ -1,4 +1,5 @@
-za\ac\nwu\acsys\logic\services\comp\CreateAccountTypeServiceComp.class
-za\ac\nwu\acsys\logic\services\comp\FetchAccountTypeServiceComp.class
-za\ac\nwu\acsys\logic\services\CreateAccountTypeService.class
-za\ac\nwu\acsys\logic\services\FetchAccountTypeService.class
+za\ac\nwu\acsys\logic\flow\FetchAccountTypeFlow.class
+za\ac\nwu\acsys\logic\flow\CreateAccountTypeFlow.class
+za\ac\nwu\acsys\logic\flow\impl\CreateAccountTypeFlowImpl.class
+za\ac\nwu\acsys\logic\flow\impl\FetchAccountTypeFlowImpl.class
+za\ac\nwu\acsys\logic\config\LogicConfig.class

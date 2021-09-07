@@ -33,10 +33,17 @@
         <module>AccountSystemLogic</module>
         <module>AccountSystemRepository</module>
         <module>AccountSystemTranslator</module>
-        <module>AccountSystemWeb</module>
         <module>AccountSystemWebSpringBoot</module>
     </modules>
 
+
+<!--    <repositories>-->
+<!--        <repository>-->
+<!--            <id>hand-china-repo</id>-->
+<!--            <name>HandChinaRepo</name>-->
+<!--            <url>http://nexus.saas.hand-china.com/content/repositories/rdc/</url>-->
+<!--        </repository>-->
+<!--    </repositories>-->
 
     <!-- Dependency management for swagger setup-->
     <dependencyManagement>
@@ -81,8 +88,14 @@
             <dependency>
                 <groupId>com.oracle.database.jdbc</groupId>
                 <artifactId>ojdbc8</artifactId>
-                <version>19.3.0.0</version>
+                <version>12.2.0.1</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/com.oracle/ojdbc7 -->
+<!--            <dependency>-->
+<!--                <groupId>com.oracle</groupId>-->
+<!--                <artifactId>ojdbc7</artifactId>-->
+<!--                <version>12.1.0.2</version>-->
+<!--            </dependency>-->
         </dependencies>
     </dependencyManagement>
 

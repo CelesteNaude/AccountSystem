@@ -27,6 +27,7 @@ public class AccountTypeDto implements Serializable {
         this.creationDate = creationDate;
     }
 
+    // TODO: Write exception for queries
     public AccountTypeDto(AccountType accountType) {
         this.setAccountTypeName(accountType.getAccountTypeName());
         this.setCreationDate(accountType.getCreationDate());
