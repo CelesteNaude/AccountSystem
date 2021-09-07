@@ -69,6 +69,8 @@ public class AccountType implements Serializable {
         return accountTransactions;
     }
 
+    public void setAccountTransactions(Set<AccountTransaction> accountTransactions) {this.accountTransactions = accountTransactions;}
+
     public void setAccountTypeId(Long accountTypeId) {
         this.accountTypeId = accountTypeId;
     }

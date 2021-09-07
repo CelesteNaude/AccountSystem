@@ -2,6 +2,7 @@ package za.ac.nwu.acsys.domain.persistence;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
@@ -14,14 +15,14 @@ public class AccountTransaction implements Serializable {
     private AccountType accountType; // Foreign key
     private Long memberId;
     private Long amount;
-    private Long transactionDate;
+    private LocalDate transactionDate;
 
     // Alt+Insert -> Constructor (select none)
     public AccountTransaction() {
     }
 
     // Alt+Insert -> Constructor (select all)
-    public AccountTransaction(Long transactionId, AccountType accountType, Long memberId, Long amount, Long transactionDate) {
+    public AccountTransaction(Long transactionId, AccountType accountType, Long memberId, Long amount, LocalDate transactionDate) {
         this.transactionId = transactionId;
         this.accountType = accountType;
         this.memberId = memberId;
@@ -48,7 +49,7 @@ public class AccountTransaction implements Serializable {
     }
 
     @Column(name = "TRANSAX_DATE")
-    public Long getTransactionDate() {
+    public LocalDate getTransactionDate() {
         return transactionDate;
     }
 
@@ -75,7 +76,7 @@ public class AccountTransaction implements Serializable {
         this.amount = amount;
     }
 
-    public void setTransactionDate(Long transactionDate) {
+    public void setTransactionDate(LocalDate transactionDate) {
         this.transactionDate = transactionDate;
     }
 

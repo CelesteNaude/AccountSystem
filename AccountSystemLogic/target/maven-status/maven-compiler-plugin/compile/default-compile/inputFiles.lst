@@ -1,4 +1,5 @@
-C:\Users\286ce\Desktop\Code\AccountSystem\AccountSystemLogic\src\main\java\za\ac\nwu\acsys\logic\services\CreateAccountTypeService.java
-C:\Users\286ce\Desktop\Code\AccountSystem\AccountSystemLogic\src\main\java\za\ac\nwu\acsys\logic\services\comp\CreateAccountTypeServiceComp.java
-C:\Users\286ce\Desktop\Code\AccountSystem\AccountSystemLogic\src\main\java\za\ac\nwu\acsys\logic\services\FetchAccountTypeService.java
-C:\Users\286ce\Desktop\Code\AccountSystem\AccountSystemLogic\src\main\java\za\ac\nwu\acsys\logic\services\comp\FetchAccountTypeServiceComp.java
+C:\Users\286ce\Desktop\Code\AccountSystem\AccountSystemLogic\src\main\java\za\ac\nwu\acsys\logic\flow\CreateAccountTypeFlow.java
+C:\Users\286ce\Desktop\Code\AccountSystem\AccountSystemLogic\src\main\java\za\ac\nwu\acsys\logic\flow\impl\CreateAccountTypeFlowImpl.java
+C:\Users\286ce\Desktop\Code\AccountSystem\AccountSystemLogic\src\main\java\za\ac\nwu\acsys\logic\flow\impl\FetchAccountTypeFlowImpl.java
+C:\Users\286ce\Desktop\Code\AccountSystem\AccountSystemLogic\src\main\java\za\ac\nwu\acsys\logic\flow\FetchAccountTypeFlow.java
+C:\Users\286ce\Desktop\Code\AccountSystem\AccountSystemLogic\src\main\java\za\ac\nwu\acsys\logic\config\LogicConfig.java

@@ -14,7 +14,20 @@
     <packaging>jar</packaging>
 
 
+    <!--  Business logic has access to translator and domain  -->
     <dependencies>
+        <dependency>
+            <groupId>za.ac.nwu.acsys</groupId>
+            <artifactId>AccountSystemDomain</artifactId>
+            <version>${project.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>za.ac.nwu.acsys</groupId>
+            <artifactId>AccountSystemTranslator</artifactId>
+            <version>${project.version}</version>
+            <scope>compile</scope>
+        </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
@@ -23,16 +36,6 @@
             <groupId>javax.persistence</groupId>
             <artifactId>javax.persistence-api</artifactId>
             <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>za.ac.nwu.acsys</groupId>
-            <artifactId>AccountSystemDomain</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>za.ac.nwu.acsys</groupId>
-            <artifactId>AccountSystemTranslator</artifactId>
-            <version>${project.version}</version>
         </dependency>
     </dependencies>
 

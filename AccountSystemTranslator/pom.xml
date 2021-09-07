@@ -14,16 +14,19 @@
     <artifactId>AccountSystemTranslator</artifactId>
     <packaging>jar</packaging>
 
+    <!-- Translator has access to domain and repo -->
     <dependencies>
         <dependency>
             <groupId>za.ac.nwu.acsys</groupId>
             <artifactId>AccountSystemDomain</artifactId>
             <version>${project.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>za.ac.nwu.acsys</groupId>
             <artifactId>AccountSystemRepository</artifactId>
             <version>${project.version}</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
