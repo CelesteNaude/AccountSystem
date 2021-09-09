@@ -19,6 +19,7 @@
     <packaging>pom</packaging>
     <description>Account System for Discovery Vitality</description>
 
+
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
@@ -28,6 +29,7 @@
         <swagger.version>1.5.20</swagger.version>
     </properties>
 
+
     <modules>
         <module>AccountSystemDomain</module>
         <module>AccountSystemLogic</module>
@@ -36,14 +38,6 @@
         <module>AccountSystemWebSpringBoot</module>
     </modules>
 
-
-<!--    <repositories>-->
-<!--        <repository>-->
-<!--            <id>hand-china-repo</id>-->
-<!--            <name>HandChinaRepo</name>-->
-<!--            <url>http://nexus.saas.hand-china.com/content/repositories/rdc/</url>-->
-<!--        </repository>-->
-<!--    </repositories>-->
 
     <!-- Dependency management for swagger setup-->
     <dependencyManagement>
@@ -100,6 +94,27 @@
     </dependencyManagement>
 
     <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-inline</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
 
