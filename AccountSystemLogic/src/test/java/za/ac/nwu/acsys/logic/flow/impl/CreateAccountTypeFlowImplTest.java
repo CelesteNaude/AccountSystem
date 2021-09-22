@@ -42,6 +42,7 @@ public class CreateAccountTypeFlowImplTest {
 
     @Test
     public void create() {
+        flow.create(new AccountTypeDto());
 
 //        AccountTypeDto accountTypeDto = new AccountTypeDto("mnemonic", "Name", LocalDate.parse("2020-01-01"));
 //        AccountTypeDto accountTypeDto2 = new AccountTypeDto("mnemonic2", "Name2", LocalDate.parse("2020-01-01"));

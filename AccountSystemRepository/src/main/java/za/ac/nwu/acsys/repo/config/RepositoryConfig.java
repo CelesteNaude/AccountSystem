@@ -1,5 +1,4 @@
 package za.ac.nwu.acsys.repo.config;
-// Checked
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Configuration;
