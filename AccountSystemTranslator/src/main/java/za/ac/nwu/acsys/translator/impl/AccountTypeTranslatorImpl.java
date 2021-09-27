@@ -62,4 +62,5 @@ public class AccountTypeTranslatorImpl implements AccountTypeTranslator {
             throw new RuntimeException("Unable to save to the DB", e);
         }
     }
+
 }

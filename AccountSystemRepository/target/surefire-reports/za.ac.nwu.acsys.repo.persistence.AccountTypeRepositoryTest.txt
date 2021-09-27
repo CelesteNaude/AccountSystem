@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: za.ac.nwu.acsys.repo.persistence.AccountTypeRepositoryTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 9.791 s <<< FAILURE! - in za.ac.nwu.acsys.repo.persistence.AccountTypeRepositoryTest
-getAccountTypeByMnemonic(za.ac.nwu.acsys.repo.persistence.AccountTypeRepositoryTest)  Time elapsed: 0.092 s  <<< FAILURE!
-java.lang.AssertionError
-	at za.ac.nwu.acsys.repo.persistence.AccountTypeRepositoryTest.getAccountTypeByMnemonic(AccountTypeRepositoryTest.java:36)
-
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.058 s - in za.ac.nwu.acsys.repo.persistence.AccountTypeRepositoryTest

@@ -3,6 +3,7 @@ package za.ac.nwu.acsys.logic.flow.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import za.ac.nwu.acsys.domain.dto.AccountTypeDto;
+import za.ac.nwu.acsys.domain.persistence.AccountType;
 import za.ac.nwu.acsys.logic.flow.FetchAccountTypeFlow;
 import za.ac.nwu.acsys.translator.AccountTypeTranslator;
 
