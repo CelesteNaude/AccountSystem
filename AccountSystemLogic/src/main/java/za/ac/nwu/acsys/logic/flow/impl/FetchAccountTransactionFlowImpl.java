@@ -8,6 +8,9 @@ import za.ac.nwu.acsys.domain.persistence.AccountTransaction;
 import za.ac.nwu.acsys.logic.flow.FetchAccountTransactionFlow;
 import za.ac.nwu.acsys.translator.AccountTransactionTranslator;
 
+import javax.transaction.Transactional;
+
+@Transactional
 @Component
 public class FetchAccountTransactionFlowImpl implements FetchAccountTransactionFlow {
 

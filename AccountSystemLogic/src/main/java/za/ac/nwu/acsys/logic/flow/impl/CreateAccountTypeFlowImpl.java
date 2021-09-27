@@ -1,6 +1,7 @@
 package za.ac.nwu.acsys.logic.flow.impl;
 
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import za.ac.nwu.acsys.domain.dto.AccountTypeDto;
 import za.ac.nwu.acsys.logic.flow.CreateAccountTypeFlow;
@@ -14,6 +15,8 @@ import java.time.LocalDate;
 @Component("createAccountTypeFlowName")
 public class CreateAccountTypeFlowImpl implements CreateAccountTypeFlow {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(CreateAccountTransactionFlowImpl.class);
+
     private final AccountTypeTranslator accountTypeTranslator;
 
     public CreateAccountTypeFlowImpl(AccountTypeTranslator accountTypeTranslator) {
@@ -26,6 +29,8 @@ public class CreateAccountTypeFlowImpl implements CreateAccountTypeFlow {
         if (null == accountType.getCreationDate()) { // always put the "null" first to avoid null pointers
             accountType.setCreationDate(LocalDate.now());
         }
+        LOGGER.info("The input object was {}", accountType); // {} is a placeholder
+
         return accountTypeTranslator.create(accountType);
     }
 }
