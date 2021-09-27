@@ -1,8 +1,12 @@
 za\ac\nwu\acsys\logic\flow\impl\Modulo.class
 za\ac\nwu\acsys\logic\flow\CreateAccountTypeFlow.class
 za\ac\nwu\acsys\logic\flow\impl\FetchAccountTypeFlowImpl.class
+za\ac\nwu\acsys\logic\flow\FetchAccountTransactionFlow.class
 za\ac\nwu\acsys\logic\flow\ModifyAccountTypeFlow.class
 za\ac\nwu\acsys\logic\config\LogicConfig.class
+za\ac\nwu\acsys\logic\flow\impl\CreateAccountTransactionFlowImpl.class
 za\ac\nwu\acsys\logic\flow\FetchAccountTypeFlow.class
 za\ac\nwu\acsys\logic\flow\impl\CreateAccountTypeFlowImpl.class
+za\ac\nwu\acsys\logic\flow\CreateAccountTransactionFlow.class
+za\ac\nwu\acsys\logic\flow\impl\FetchAccountTransactionFlowImpl.class
 za\ac\nwu\acsys\logic\flow\impl\ModifyAccountTypeFlowImpl.class
