@@ -50,7 +50,7 @@ public class AccountTypeTranslatorImpl implements AccountTypeTranslator {
             AccountType accountType = accountTypeRepository.getAccountTypeByMnemonic(mnemonic);
             return new AccountTypeDto(accountType);
         } catch (Exception e) {
-            throw new RuntimeException("Unable to save to the DB", e);
+            throw new RuntimeException("Unable to read from the DB", e);
         }
     }
 
@@ -59,8 +59,13 @@ public class AccountTypeTranslatorImpl implements AccountTypeTranslator {
         try{
             return accountTypeRepository.getAccountTypeDtoByMnemonic(mnemonic);
         } catch (Exception e) {
-            throw new RuntimeException("Unable to save to the DB", e);
+            throw new RuntimeException("Unable to read from the DB", e);
         }
+    }
+
+    @Override
+    public AccountType getAccountTypeDbEntityByMnemonic(String accountType) {
+        return accountTypeRepository.getAccountTypeByMnemonic(accountType);
     }
 
 }

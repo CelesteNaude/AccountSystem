@@ -1,11 +1,12 @@
 package za.ac.nwu.acsys.translator;
 
-// checked
-
+import za.ac.nwu.acsys.domain.dto.AccountTransactionDto;
+import za.ac.nwu.acsys.domain.dto.AccountTypeDto;
 import za.ac.nwu.acsys.domain.persistence.AccountTransaction;
 
 public interface AccountTransactionTranslator {
-    AccountTransaction save(AccountTransaction accountTransaction);
 
-    AccountTransaction getAccountTransactionByPk(Long transactionId);
+    AccountTransactionDto getAccountTransaxById(Long transactionId);
+
+    AccountTransaction save(AccountTransaction accountTransaction);
 }

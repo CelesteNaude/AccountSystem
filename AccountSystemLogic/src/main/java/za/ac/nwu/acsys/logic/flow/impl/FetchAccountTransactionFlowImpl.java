@@ -1,12 +1,13 @@
 package za.ac.nwu.acsys.logic.flow.impl;
 
-// checked
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import za.ac.nwu.acsys.domain.dto.AccountTransactionDto;
+import za.ac.nwu.acsys.domain.dto.AccountTypeDto;
 import za.ac.nwu.acsys.domain.persistence.AccountTransaction;
 import za.ac.nwu.acsys.logic.flow.FetchAccountTransactionFlow;
 import za.ac.nwu.acsys.translator.AccountTransactionTranslator;
+import za.ac.nwu.acsys.translator.AccountTypeTranslator;
 
 import javax.transaction.Transactional;
 
@@ -14,15 +15,19 @@ import javax.transaction.Transactional;
 @Component
 public class FetchAccountTransactionFlowImpl implements FetchAccountTransactionFlow {
 
-    private AccountTransactionTranslator translator;
+    private AccountTransactionTranslator accountTransactionTranslator;
+    private AccountTypeTranslator accountTypeTranslator;
 
-    public FetchAccountTransactionFlowImpl(AccountTransactionTranslator translator) {
-        this.translator = translator;
+    @Autowired
+    public FetchAccountTransactionFlowImpl(AccountTransactionTranslator accountTransactionTranslator,
+                                           AccountTypeTranslator accountTypeTranslator) {
+        this.accountTransactionTranslator = accountTransactionTranslator;
+        this.accountTypeTranslator = accountTypeTranslator;
     }
 
+
     @Override
-    public AccountTransactionDto getAccountTransactionById(Long transactionId) {
-        AccountTransaction accountTransaction = translator.getAccountTransactionByPk(transactionId);
-        return null != accountTransaction ? new AccountTransactionDto(accountTransaction) : null; // return null if it can't find anything
+    public AccountTransactionDto getAccountTransax(Long transactionId) {
+        return accountTransactionTranslator.getAccountTransaxById(transactionId);
     }
 }

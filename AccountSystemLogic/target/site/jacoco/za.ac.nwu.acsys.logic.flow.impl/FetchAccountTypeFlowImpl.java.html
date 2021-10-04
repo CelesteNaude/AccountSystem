@@ -31,8 +31,13 @@ public class FetchAccountTypeFlowImpl implements FetchAccountTypeFlow {
 <span class="nc" id="L31">        return accountTypeTranslator.getAccountTypeByMnemonic(mnemonic);</span>
     }
 
+    @Override
+    public AccountType getAccountTypeDbEntityByMnemonic(String accountType) {
+<span class="nc" id="L36">        return accountTypeTranslator.getAccountTypeDbEntityByMnemonic(accountType);</span>
+    }
+
     public  boolean methodToTest() {
-<span class="nc" id="L35">        return true;</span>
+<span class="nc" id="L40">        return true;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

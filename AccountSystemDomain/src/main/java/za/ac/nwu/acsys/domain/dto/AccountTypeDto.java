@@ -69,7 +69,7 @@ public class AccountTypeDto implements Serializable {
             value = "AccountType Creation Date",
             name = "CreationDate",
             notes = "The date on which the AccountType was created",
-            dataType = "java.lang.String",
+            dataType = "java.lang.LocalDate",
             example = "2020-01-01",
             allowEmptyValue = true) // means that it is a nullable field
     public LocalDate getCreationDate() {
@@ -80,19 +80,21 @@ public class AccountTypeDto implements Serializable {
         this.creationDate = creationDate;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        AccountTypeDto that = (AccountTypeDto) o;
-        return Objects.equals(mnemonic, that.mnemonic) && Objects.equals(accountTypeName, that.accountTypeName) && Objects.equals(creationDate, that.creationDate);
-    }
 
     // Add JsonIgnore if you have a getter that is not part of the fields
     // In this case, AccountType_Id
     @JsonIgnore
     public AccountType getAccountType() {
         return new AccountType(getMnemonic(), getAccountTypeName(), getCreationDate());
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AccountTypeDto that = (AccountTypeDto) o;
+        return Objects.equals(mnemonic, that.mnemonic) && Objects.equals(accountTypeName, that.accountTypeName) && Objects.equals(creationDate, that.creationDate);
     }
 
     @Override

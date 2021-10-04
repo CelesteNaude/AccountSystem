@@ -31,6 +31,11 @@ public class FetchAccountTypeFlowImpl implements FetchAccountTypeFlow {
         return accountTypeTranslator.getAccountTypeByMnemonic(mnemonic);
     }
 
+    @Override
+    public AccountType getAccountTypeDbEntityByMnemonic(String accountType) {
+        return accountTypeTranslator.getAccountTypeDbEntityByMnemonic(accountType);
+    }
+
     public  boolean methodToTest() {
         return true;
     }

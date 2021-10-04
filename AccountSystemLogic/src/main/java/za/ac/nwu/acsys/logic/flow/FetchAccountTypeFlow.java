@@ -10,4 +10,6 @@ public interface FetchAccountTypeFlow {
     List<AccountTypeDto> getAllAccountTypes();
 
     AccountTypeDto getAccountTypeByMnemonic(String mnemonic);
+
+    AccountType getAccountTypeDbEntityByMnemonic(String accountType);
 }

@@ -1,5 +1,6 @@
 package za.ac.nwu.acsys.translator;
 
+import za.ac.nwu.acsys.domain.dto.AccountTransactionDto;
 import za.ac.nwu.acsys.domain.dto.AccountTypeDto;
 import za.ac.nwu.acsys.domain.persistence.AccountType;
 
@@ -13,5 +14,7 @@ public interface AccountTypeTranslator {
 
     AccountTypeDto getAccountTypeByMnemonic(String mnemonic);
 
-    AccountTypeDto getAccountTypeDtoByMnemonic(String mnemonic);
+    AccountTypeDto getAccountTypeDtoByMnemonic(String mnemonic);;
+
+    AccountType getAccountTypeDbEntityByMnemonic(String accountType);
 }
