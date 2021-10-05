@@ -3,6 +3,7 @@ package za.ac.nwu.acsys.domain.dto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import za.ac.nwu.acsys.domain.persistence.AccountInfo;
 import za.ac.nwu.acsys.domain.persistence.AccountTransaction;
 import za.ac.nwu.acsys.domain.persistence.AccountType;
 
@@ -18,16 +19,18 @@ public class AccountTransactionDto implements Serializable {
     private Long transactionId;
     private String accountType;
     private Long memberId;
+    private Long accountInfo;
     private Long amount;
     private LocalDate transactionDate;
 
     public AccountTransactionDto() {
     }
 
-    public AccountTransactionDto(Long transactionId, String accountType, Long memberId, Long amount, LocalDate transactionDate) {
+    public AccountTransactionDto(Long transactionId, String accountType, Long memberId, Long accountInfo, Long amount, LocalDate transactionDate) {
         this.transactionId = transactionId;
         this.accountType = accountType;
         this.memberId = memberId;
+        this.accountInfo = accountInfo;
         this.amount = amount;
         this.transactionDate = transactionDate;
     }
@@ -36,6 +39,7 @@ public class AccountTransactionDto implements Serializable {
         this.transactionId = accountTransaction.getTransactionId();
         this.accountType = accountTransaction.getAccountType().getMnemonic();
         this.memberId = accountTransaction.getMemberId();
+        this.accountInfo = accountTransaction.getAccountInfo().getAccountInfoId();
         this.amount = accountTransaction.getAmount();
         this.transactionDate = accountTransaction.getTransactionDate();
     }
@@ -44,7 +48,7 @@ public class AccountTransactionDto implements Serializable {
             value = "AccountTransaction Id",
             name = "transactionId",
             notes = "Uniquely identifies the account type",
-            dataType = "java.lang.String",
+            dataType = "java.lang.Long",
             example = "1",
             required = true)
     public Long getTransactionId() {
@@ -85,7 +89,22 @@ public class AccountTransactionDto implements Serializable {
         this.memberId = memberId;
     }
 
-        @ApiModelProperty(position = 4,
+    @ApiModelProperty(position = 4,
+            value = "AccountInfo Id",
+            name = "AccountInfo",
+            notes = "Uniquely identifies the account information",
+            dataType = "java.lang.Long",
+            example = "1",
+            required = true)
+    public Long getAccountInfo() {
+        return accountInfo;
+    }
+
+    public void setAccountInfo(Long accountInfo) {
+        this.accountInfo = accountInfo;
+    }
+
+        @ApiModelProperty(position = 5,
             value = "AccountTransaction Amount",
             name = "Amount",
             notes = "The amount of an account transaction",
@@ -116,8 +135,8 @@ public class AccountTransactionDto implements Serializable {
     }
 
     @JsonIgnore
-    public  AccountTransaction getAccountTransaction(AccountType accountType) {
-        return new AccountTransaction(this.getTransactionId(), accountType, this.getMemberId(), this.getAmount(), this.getTransactionDate());
+    public  AccountTransaction getAccountTransaction(AccountType accountType, AccountInfo accountInfo) {
+        return new AccountTransaction(this.getTransactionId(), accountType, this.getMemberId(), accountInfo, this.getAmount(), this.getTransactionDate());
     }
 
     @Override
@@ -125,23 +144,23 @@ public class AccountTransactionDto implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         AccountTransactionDto that = (AccountTransactionDto) o;
-        return transactionId.equals(that.transactionId) && accountType.equals(that.accountType) && memberId.equals(that.memberId) && amount.equals(that.amount) && Objects.equals(transactionDate, that.transactionDate);
+        return transactionId.equals(that.transactionId) && accountType.equals(that.accountType) && memberId.equals(that.memberId) && accountInfo.equals(that.accountInfo) && amount.equals(that.amount) && Objects.equals(transactionDate, that.transactionDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(transactionId, accountType, memberId, amount, transactionDate);
+        return Objects.hash(transactionId, accountType, memberId, accountInfo, amount, transactionDate);
     }
 
     @Override
     public String toString() {
         return "AccountTransactionDto{" +
                 "transactionId=" + transactionId +
-                ", accountType=" + accountType +
+                ", accountType='" + accountType + '\'' +
                 ", memberId=" + memberId +
+                ", accountInfo=" + accountInfo +
                 ", amount=" + amount +
                 ", transactionDate=" + transactionDate +
                 '}';
     }
-
 }

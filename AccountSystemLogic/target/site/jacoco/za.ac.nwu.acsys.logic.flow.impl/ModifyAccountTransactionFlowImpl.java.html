@@ -2,10 +2,15 @@
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
-<span class="nc" id="L6">public class ModifyAccountTransactionFlowImpl {</span>
+import javax.transaction.Transactional;
 
-<span class="nc" id="L8">    private static final Logger LOGGER = LoggerFactory.getLogger(ModifyAccountTransactionFlowImpl.class);</span>
+@Transactional
+@Component
+<span class="nc" id="L11">public class ModifyAccountTransactionFlowImpl {</span>
+
+<span class="nc" id="L13">    private static final Logger LOGGER = LoggerFactory.getLogger(ModifyAccountTransactionFlowImpl.class);</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

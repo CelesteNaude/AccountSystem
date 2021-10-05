@@ -5,9 +5,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import za.ac.nwu.acsys.domain.dto.AccountTransactionDto;
 import za.ac.nwu.acsys.domain.dto.AccountTypeDto;
+import za.ac.nwu.acsys.domain.persistence.AccountInfo;
 import za.ac.nwu.acsys.domain.persistence.AccountTransaction;
 import za.ac.nwu.acsys.domain.persistence.AccountType;
 import za.ac.nwu.acsys.logic.flow.CreateAccountTransactionFlow;
+import za.ac.nwu.acsys.logic.flow.FetchAccountInfoFlow;
 import za.ac.nwu.acsys.logic.flow.FetchAccountTypeFlow;
 import za.ac.nwu.acsys.translator.AccountTransactionTranslator;
 
@@ -18,81 +20,87 @@ import java.time.LocalDate;
 @Component(&quot;createAccountTransactionFlowName&quot;)
 public class CreateAccountTransactionFlowImpl implements CreateAccountTransactionFlow {
 
-<span class="nc" id="L21">    private static final Logger LOGGER = LoggerFactory.getLogger(CreateAccountTransactionFlowImpl.class);</span>
+<span class="nc" id="L23">    private static final Logger LOGGER = LoggerFactory.getLogger(CreateAccountTransactionFlowImpl.class);</span>
 
     private final AccountTransactionTranslator accountTransactionTranslator;
     private final FetchAccountTypeFlow fetchAccountTypeFlow;
+    private final FetchAccountInfoFlow fetchAccountInfoFlow;
 
     public  CreateAccountTransactionFlowImpl(AccountTransactionTranslator accountTransactionTranslator,
-<span class="nc" id="L27">                                             FetchAccountTypeFlow fetchAccountTypeFlow) {</span>
-<span class="nc" id="L28">        this.accountTransactionTranslator = accountTransactionTranslator;</span>
-<span class="nc" id="L29">        this. fetchAccountTypeFlow = fetchAccountTypeFlow;</span>
-<span class="nc" id="L30">    }</span>
+                                             FetchAccountTypeFlow fetchAccountTypeFlow,
+<span class="nc" id="L31">                                             FetchAccountInfoFlow fetchAccountInfoFlow) {</span>
+<span class="nc" id="L32">        this.accountTransactionTranslator = accountTransactionTranslator;</span>
+<span class="nc" id="L33">        this. fetchAccountTypeFlow = fetchAccountTypeFlow;</span>
+<span class="nc" id="L34">        this.fetchAccountInfoFlow = fetchAccountInfoFlow;</span>
+<span class="nc" id="L35">    }</span>
 
     @Override
     public AccountTransactionDto create(AccountTransactionDto transactionDto) {
-<span class="nc" id="L34">        transactionDto.setTransactionId(null);</span>
-<span class="nc" id="L35">        AccountType accountType = fetchAccountTypeFlow.getAccountTypeDbEntityByMnemonic(transactionDto.getAccountType());</span>
-<span class="nc bnc" id="L36" title="All 2 branches missed.">        if(null == transactionDto.getTransactionDate()) {</span>
-<span class="nc" id="L37">            transactionDto.setTransactionDate(LocalDate.now());</span>
+<span class="nc" id="L39">        LOGGER.info(&quot;The input object was {}&quot;, transactionDto);</span>
+<span class="nc" id="L40">        transactionDto.setTransactionId(null);//if transactionId was populated</span>
+
+<span class="nc" id="L42">        AccountType accountType = fetchAccountTypeFlow.getAccountTypeDbEntityByMnemonic(transactionDto.getAccountType());</span>
+<span class="nc" id="L43">        LOGGER.info(&quot;Got AccountType for {} and the AccountTypeId is {}&quot;, transactionDto.getAccountType(), accountType.getMnemonic());</span>
+
+<span class="nc" id="L45">        AccountInfo accountInfo = fetchAccountInfoFlow.getAccountInfoDbEntityById(transactionDto.getAccountInfo());</span>
+<span class="nc" id="L46">        LOGGER.info(&quot;Got AccountInfo for {} and the AccountInfoId is {}&quot;, transactionDto.getAccountInfo(), accountInfo.getAccountInfoId());</span>
+
+<span class="nc bnc" id="L48" title="All 2 branches missed.">        if(null == transactionDto.getTransactionDate()) {</span>
+<span class="nc" id="L49">            transactionDto.setTransactionDate(LocalDate.now());</span>
         }
-<span class="nc" id="L39">        AccountTransaction accountTransaction = transactionDto.getAccountTransaction(accountType);</span>
-<span class="nc" id="L40">        AccountTransaction createdAccountTransax = accountTransactionTranslator.save(accountTransaction);</span>
-<span class="nc" id="L41">        AccountTransactionDto result = new AccountTransactionDto(createdAccountTransax);</span>
-<span class="nc" id="L42">        return result;</span>
+
+<span class="nc" id="L52">        AccountTransaction accountTransaction = transactionDto.getAccountTransaction(accountType, accountInfo);</span>
+<span class="nc" id="L53">        AccountTransaction createdAccountTransax = accountTransactionTranslator.save(accountTransaction);</span>
+
+<span class="nc" id="L55">        AccountTransactionDto result = new AccountTransactionDto(createdAccountTransax);</span>
+<span class="nc" id="L56">        LOGGER.info(&quot;The return object is {}&quot;, result);</span>
+<span class="nc" id="L57">        return result;</span>
     }
 
-//    @Override
-//    public  AccountTransactionDto add(AccountTransactionDto accountTransactionDto) {
-//        AccountType accountType = fetchAccountTypeFlow.getAccountTypeDbEntityByMnemonic(accountTransactionDto.getAccountType());
-//        AccountTransaction accountTransaction = accountTransactionDto.getAccountTransaction(accountType);
-//        return accountTransactionTranslator.create(accountTransaction);
-//    }
+    @Override
+    public AccountTransactionDto add(AccountTransactionDto transactionDto) {
+<span class="nc" id="L62">        LOGGER.info(&quot;The input object was {}&quot;, transactionDto);</span>
+<span class="nc" id="L63">        transactionDto.setTransactionId(null);</span>
 
-//    @Override
-//    public AccountTransactionDto add(AccountTransactionDto accountTransactionDto) {
-//        LOGGER.info(&quot;The input object was {}&quot;, accountTransactionDto);
-//
-//        accountTransactionDto.setTransactionId(null);//if transactionId was populated
-//
-//        AccountType accountType =
-//                fetchAccountTypeFlow.getAccountTypeDbEntityByMnemonic(accountTransactionDto.getAccountType());
-//        LOGGER.info(&quot;Got AccountType for {} and the AccountTypeId is {}&quot;,
-//                accountTransactionDto.getAccountType(), accountType.getMnemonic());
-//
-//        // Create new balance
-//        Long newBalance = accountTransactionDto.getBalance() + accountTransactionDto.getAmount();
-//        AccountTransaction accountTransaction =
-//                accountTransactionDto.buildAccountTransaction(accountType, newBalance);
-//
-//         AccountTransaction createdAccountTransaction = accountTransactionTranslator.save(accountTransaction);
-//
-//        AccountTransactionDto result = new AccountTransactionDto(createdAccountTransaction);
-//        LOGGER.info(&quot;The return object is {}&quot;, result);
-//        return result;
-//    }
+<span class="nc" id="L65">        AccountType accountType = fetchAccountTypeFlow.getAccountTypeDbEntityByMnemonic(transactionDto.getAccountType());</span>
+<span class="nc" id="L66">        LOGGER.info(&quot;Got AccountType for {} and the AccountTypeId is {}&quot;, transactionDto.getAccountType(), accountType.getMnemonic());</span>
 
-//    @Override
-//    public AccountTransactionDto subtract(AccountTransactionDto accountTransactionDto) {
-//        LOGGER.info(&quot;The input object was {}&quot;, accountTransactionDto);
-//
-//        accountTransactionDto.setTransactionId(null);//if transactionId was populated
-//
-//        AccountType accountType =
-//                fetchAccountTypeFlow.getAccountTypeDbEntityByMnemonic(accountTransactionDto.getAccountType());
-//        LOGGER.info(&quot;Got AccountType for {} and the AccountTypeId is {}&quot;,
-//                accountTransactionDto.getAccountType(), accountType.getMnemonic());
-//
-//        // Create new balance
-//        Long newBalance = accountTransactionDto.getBalance() - accountTransactionDto.getAmount();
-//        AccountTransaction accountTransaction =
-//                accountTransactionDto.buildAccountTransaction(accountType, newBalance);
-//
-//        AccountTransaction createdAccountTransaction = accountTransactionTranslator.save(accountTransaction);
-//
-//        AccountTransactionDto result = new AccountTransactionDto(createdAccountTransaction);
-//        LOGGER.info(&quot;The return object is {}&quot;, result);
-//        return result;
-//    }
+<span class="nc" id="L68">        AccountInfo accountInfo = fetchAccountInfoFlow.getAccountInfoAddById(transactionDto.getAccountInfo(), transactionDto.getAmount());</span>
+<span class="nc" id="L69">        LOGGER.info(&quot;Got AccountInfo for {} and the AccountInfoId is {}&quot;, transactionDto.getAccountInfo(), accountInfo.getAccountInfoId());</span>
+
+<span class="nc bnc" id="L71" title="All 2 branches missed.">        if(null == transactionDto.getTransactionDate()) {</span>
+<span class="nc" id="L72">            transactionDto.setTransactionDate(LocalDate.now());</span>
+        }
+
+<span class="nc" id="L75">        AccountTransaction accountTransaction = transactionDto.getAccountTransaction(accountType, accountInfo);</span>
+<span class="nc" id="L76">        AccountTransaction createdAccountTransax = accountTransactionTranslator.save(accountTransaction);</span>
+
+<span class="nc" id="L78">        AccountTransactionDto result = new AccountTransactionDto(createdAccountTransax);</span>
+<span class="nc" id="L79">        LOGGER.info(&quot;The return object is {}&quot;, result);</span>
+<span class="nc" id="L80">        return result;</span>
+    }
+
+    @Override
+    public AccountTransactionDto subtract(AccountTransactionDto transactionDto) {
+<span class="nc" id="L85">        LOGGER.info(&quot;The input object was {}&quot;, transactionDto);</span>
+<span class="nc" id="L86">        transactionDto.setTransactionId(null);</span>
+
+<span class="nc" id="L88">        AccountType accountType = fetchAccountTypeFlow.getAccountTypeDbEntityByMnemonic(transactionDto.getAccountType());</span>
+<span class="nc" id="L89">        LOGGER.info(&quot;Got AccountType for {} and the AccountTypeId is {}&quot;, transactionDto.getAccountType(), accountType.getMnemonic());</span>
+
+<span class="nc" id="L91">        AccountInfo accountInfo = fetchAccountInfoFlow.getAccountInfoDbEntityById(transactionDto.getAccountInfo());</span>
+<span class="nc" id="L92">        LOGGER.info(&quot;Got AccountInfo for {} and the AccountInfoId is {}&quot;, transactionDto.getAccountInfo(), accountInfo.getAccountInfoId());</span>
+
+<span class="nc bnc" id="L94" title="All 2 branches missed.">        if(null == transactionDto.getTransactionDate()) {</span>
+<span class="nc" id="L95">            transactionDto.setTransactionDate(LocalDate.now());</span>
+        }
+
+<span class="nc" id="L98">        AccountTransaction accountTransaction = transactionDto.getAccountTransaction(accountType, accountInfo);</span>
+<span class="nc" id="L99">        AccountTransaction createdAccountTransax = accountTransactionTranslator.save(accountTransaction);</span>
+
+<span class="nc" id="L101">        AccountTransactionDto result = new AccountTransactionDto(createdAccountTransax);</span>
+<span class="nc" id="L102">        LOGGER.info(&quot;The return object is {}&quot;, result);</span>
+<span class="nc" id="L103">        return result;</span>
+    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

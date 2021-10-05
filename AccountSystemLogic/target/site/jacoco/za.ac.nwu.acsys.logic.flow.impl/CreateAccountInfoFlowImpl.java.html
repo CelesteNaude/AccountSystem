@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CreateAccountInfoFlowImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">AccountSystemLogic</a> &gt; <a href="index.source.html" class="el_package">za.ac.nwu.acsys.logic.flow.impl</a> &gt; <span class="el_source">CreateAccountInfoFlowImpl.java</span></div><h1>CreateAccountInfoFlowImpl.java</h1><pre class="source lang-java linenums">package za.ac.nwu.acsys.logic.flow.impl;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+import za.ac.nwu.acsys.domain.dto.AccountInfoDto;
+import za.ac.nwu.acsys.domain.persistence.AccountInfo;
+import za.ac.nwu.acsys.domain.persistence.AccountType;
+import za.ac.nwu.acsys.logic.flow.CreateAccountInfoFlow;
+import za.ac.nwu.acsys.logic.flow.FetchAccountTypeFlow;
+import za.ac.nwu.acsys.translator.AccountInfoTranslator;
+
+import javax.transaction.Transactional;
+
+@Transactional
+@Component(&quot;createAccountInfoFlowName&quot;)
+public class CreateAccountInfoFlowImpl implements CreateAccountInfoFlow {
+
+<span class="nc" id="L19">    private static final Logger LOGGER = LoggerFactory.getLogger(CreateAccountInfoFlowImpl.class);</span>
+
+    private final AccountInfoTranslator accountInfoTranslator;
+    private final FetchAccountTypeFlow fetchAccountTypeFlow;
+
+    public CreateAccountInfoFlowImpl(AccountInfoTranslator accountInfoTranslator,
+<span class="nc" id="L25">                                     FetchAccountTypeFlow fetchAccountTypeFlow) {</span>
+<span class="nc" id="L26">        this.accountInfoTranslator = accountInfoTranslator;</span>
+<span class="nc" id="L27">        this.fetchAccountTypeFlow = fetchAccountTypeFlow;</span>
+<span class="nc" id="L28">    }</span>
+
+    @Override
+    public AccountInfoDto create(AccountInfoDto accountInfoDto) {
+<span class="nc" id="L32">        accountInfoDto.setAccountInfoId(null);</span>
+<span class="nc" id="L33">        AccountType accountType = fetchAccountTypeFlow.getAccountTypeDbEntityByMnemonic(accountInfoDto.getAccountType());</span>
+<span class="nc" id="L34">        AccountInfo accountInfo = accountInfoDto.getAccountInfo(accountType);</span>
+<span class="nc" id="L35">        AccountInfo createdAccountInfo = accountInfoTranslator.save(accountInfo);</span>
+<span class="nc" id="L36">        AccountInfoDto result = new AccountInfoDto(createdAccountInfo);</span>
+<span class="nc" id="L37">        return result;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

@@ -18,6 +18,7 @@ public class AccountType implements Serializable {
     private LocalDate creationDate;
 
     private Set<AccountTransaction> accountTransactions;
+    private Set<AccountInfo> accountInfos;
 
     // Alt+Insert -> Constructor (select none)
     // Default constructor
@@ -71,7 +72,14 @@ public class AccountType implements Serializable {
         return accountTransactions;
     }
 
+    @OneToMany(targetEntity = AccountInfo.class, fetch = FetchType.LAZY, mappedBy = "accountType")
+    public Set<AccountInfo> getAccountInfos() {
+        return accountInfos;
+    }
+
     public void setAccountTransactions(Set<AccountTransaction> accountTransactions) {this.accountTransactions = accountTransactions;}
+
+    public void setAccountInfos(Set<AccountInfo> accountInfos) {this.accountInfos = accountInfos;}
 
     public void setAccountTypeId(Long accountTypeId) {
         this.accountTypeId = accountTypeId;
@@ -90,20 +98,23 @@ public class AccountType implements Serializable {
     }
 
     // Alt+Insert -> equals() and hashCode()
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         AccountType that = (AccountType) o;
-        return Objects.equals(accountTypeId, that.accountTypeId) && Objects.equals(mnemonic, that.mnemonic) && Objects.equals(accountTypeName, that.accountTypeName) && Objects.equals(creationDate, that.creationDate) && Objects.equals(accountTransactions, that.accountTransactions);
+        return accountTypeId.equals(that.accountTypeId) && mnemonic.equals(that.mnemonic) && accountTypeName.equals(that.accountTypeName) && Objects.equals(creationDate, that.creationDate) && accountTransactions.equals(that.accountTransactions) && accountInfos.equals(that.accountInfos);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountTypeId, mnemonic, accountTypeName, creationDate, accountTransactions);
+        return Objects.hash(accountTypeId, mnemonic, accountTypeName, creationDate, accountTransactions, accountInfos);
     }
 
     // Alt+Insert -> toString()
+
     @Override
     public String toString() {
         return "AccountType{" +
@@ -112,6 +123,7 @@ public class AccountType implements Serializable {
                 ", accountTypeName='" + accountTypeName + '\'' +
                 ", creationDate=" + creationDate +
                 ", accountTransactions=" + accountTransactions +
+                ", accountInfos=" + accountInfos +
                 '}';
     }
 }
