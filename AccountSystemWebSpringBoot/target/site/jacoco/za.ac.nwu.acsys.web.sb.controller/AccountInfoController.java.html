@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import za.ac.nwu.acsys.domain.dto.AccountInfoDto;
 import za.ac.nwu.acsys.domain.dto.AccountTransactionDto;
+import za.ac.nwu.acsys.domain.dto.AccountTypeDto;
 import za.ac.nwu.acsys.domain.service.GeneralResponse;
 import za.ac.nwu.acsys.logic.flow.CreateAccountInfoFlow;
 import za.ac.nwu.acsys.logic.flow.FetchAccountInfoFlow;
@@ -23,17 +24,17 @@ import za.ac.nwu.acsys.logic.flow.ModifyAccountInfoFlow;
 @RequestMapping(&quot;account-info&quot;)
 public class AccountInfoController {
 
-<span class="nc" id="L26">    private static final Logger LOGGER = LoggerFactory.getLogger(AccountInfoController.class);</span>
+<span class="nc" id="L27">    private static final Logger LOGGER = LoggerFactory.getLogger(AccountInfoController.class);</span>
 
     private final FetchAccountInfoFlow fetchAccountInfoFlow;
     private final CreateAccountInfoFlow createAccountInfoFlow;
 
     @Autowired
     public AccountInfoController(FetchAccountInfoFlow fetchAccountInfoFlow,
-<span class="nc" id="L33">                                 CreateAccountInfoFlow createAccountInfoFlow) {</span>
-<span class="nc" id="L34">        this.fetchAccountInfoFlow = fetchAccountInfoFlow;</span>
-<span class="nc" id="L35">        this.createAccountInfoFlow = createAccountInfoFlow;</span>
-<span class="nc" id="L36">    }</span>
+<span class="nc" id="L34">                                 CreateAccountInfoFlow createAccountInfoFlow) {</span>
+<span class="nc" id="L35">        this.fetchAccountInfoFlow = fetchAccountInfoFlow;</span>
+<span class="nc" id="L36">        this.createAccountInfoFlow = createAccountInfoFlow;</span>
+<span class="nc" id="L37">    }</span>
 
     @PostMapping(&quot;&quot;)
     @ApiOperation(value = &quot;Creates a new AccountInfo.&quot;, notes = &quot;Creates a  new AccountInfo in the DB.&quot;)
@@ -44,9 +45,9 @@ public class AccountInfoController {
     public ResponseEntity&lt;GeneralResponse&lt;AccountInfoDto&gt;&gt; create(
             @ApiParam(value = &quot;Request body to create a new AccountTransaction&quot;, required = true)
             @RequestBody AccountInfoDto accountInfoDto) {
-<span class="nc" id="L47">        AccountInfoDto AccountInfoResponse = createAccountInfoFlow.create(accountInfoDto);</span>
-<span class="nc" id="L48">        GeneralResponse&lt;AccountInfoDto&gt; response = new GeneralResponse&lt;&gt;(true, AccountInfoResponse);</span>
-<span class="nc" id="L49">        return new ResponseEntity&lt;&gt;(response, HttpStatus.CREATED);</span>
+<span class="nc" id="L48">        AccountInfoDto AccountInfoResponse = createAccountInfoFlow.create(accountInfoDto);</span>
+<span class="nc" id="L49">        GeneralResponse&lt;AccountInfoDto&gt; response = new GeneralResponse&lt;&gt;(true, AccountInfoResponse);</span>
+<span class="nc" id="L50">        return new ResponseEntity&lt;&gt;(response, HttpStatus.CREATED);</span>
     }
 
     @GetMapping(&quot;/{accountInfoId}&quot;) // define PathVariable
@@ -62,9 +63,9 @@ public class AccountInfoController {
                     name = &quot;accountInfoId&quot;,
                     required = true)
             @PathVariable(&quot;accountInfoId&quot;) final Long accountInfoId) {
-<span class="nc" id="L65">        AccountInfoDto accountInfoDto = fetchAccountInfoFlow.getAccountBalance(accountInfoId);</span>
-<span class="nc" id="L66">        GeneralResponse&lt;AccountInfoDto&gt; response = new GeneralResponse&lt;&gt;(true, accountInfoDto);</span>
-<span class="nc" id="L67">        return new ResponseEntity&lt;&gt;(response, HttpStatus.OK);</span>
+<span class="nc" id="L66">        AccountInfoDto accountInfoDto = fetchAccountInfoFlow.getAccountBalance(accountInfoId);</span>
+<span class="nc" id="L67">        GeneralResponse&lt;AccountInfoDto&gt; response = new GeneralResponse&lt;&gt;(true, accountInfoDto);</span>
+<span class="nc" id="L68">        return new ResponseEntity&lt;&gt;(response, HttpStatus.OK);</span>
     }
 
 }

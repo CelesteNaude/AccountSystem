@@ -43,22 +43,35 @@ public class AccountInfoTranslatorImpl implements AccountInfoTranslator {
 
     @Override
     public AccountInfo getAccountInfoDbEntityById(Long accountInfo) {
-        return accountInfoRepository.getAccountBalanceById(accountInfo);
+        try{
+            return accountInfoRepository.getAccountBalanceById(accountInfo);
+        }catch (Exception e){
+            throw new RuntimeException("Unable to read from the DB", e);
+        }
+
     }
 
     @Override
     public AccountInfo getAccountInfoAddById(Long accountInfo, Long amount) {
-        LOGGER.info("The accountId te update is {} and the amount is {}", accountInfo, amount);
-        accountInfoRepository.getAccountAddBalanceById(accountInfo, amount);
-        LOGGER.info("The accountId te get is {}", accountInfo);
-        return accountInfoRepository.getAccountBalanceById(accountInfo);
+        try{
+            LOGGER.info("The accountId te update is {} and the amount is {}", accountInfo, amount);
+            accountInfoRepository.getAccountAddBalanceById(accountInfo, amount);
+            LOGGER.info("The accountId te get is {}", accountInfo);
+            return accountInfoRepository.getAccountBalanceById(accountInfo);
+        }catch (Exception e){
+            throw new RuntimeException("Unable to read from the DB", e);
+        }
     }
 
     @Override
     public AccountInfo getAccountInfoSubtractById(Long accountInfo, Long amount) {
-        LOGGER.info("The accountId te update is {} and the amount is {}", accountInfo, amount);
-        accountInfoRepository.getAccountSubtractBalanceById(accountInfo, amount);
-        LOGGER.info("The accountId te get is {}", accountInfo);
-        return accountInfoRepository.getAccountBalanceById(accountInfo);
+        try{
+            LOGGER.info("The accountId te update is {} and the amount is {}", accountInfo, amount);
+            accountInfoRepository.getAccountSubtractBalanceById(accountInfo, amount);
+            LOGGER.info("The accountId te get is {}", accountInfo);
+            return accountInfoRepository.getAccountBalanceById(accountInfo);
+        }catch (Exception e){
+            throw new RuntimeException("Unable to read from the DB", e);
+        }
     }
 }

@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import za.ac.nwu.acsys.domain.dto.AccountInfoDto;
 import za.ac.nwu.acsys.domain.dto.AccountTransactionDto;
+import za.ac.nwu.acsys.domain.dto.AccountTypeDto;
 import za.ac.nwu.acsys.domain.service.GeneralResponse;
 import za.ac.nwu.acsys.logic.flow.CreateAccountInfoFlow;
 import za.ac.nwu.acsys.logic.flow.FetchAccountInfoFlow;

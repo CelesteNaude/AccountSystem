@@ -37,5 +37,10 @@ public class FetchAccountInfoFlowImpl implements FetchAccountInfoFlow {
     public AccountInfo getAccountInfoAddById(Long accountInfo, Long amount) {
 <span class="nc" id="L38">        return accountInfoTranslator.getAccountInfoAddById(accountInfo, amount);</span>
     }
+
+    @Override
+    public AccountInfo getAccountInfoSubtractById(Long accountInfo, Long amount) {
+<span class="nc" id="L43">        return accountInfoTranslator.getAccountInfoSubtractById(accountInfo, amount);</span>
+    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

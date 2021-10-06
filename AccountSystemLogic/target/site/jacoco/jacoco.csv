@@ -1,10 +1,10 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-AccountSystemLogic,za.ac.nwu.acsys.logic.flow.impl,ModifyAccountTypeFlowImpl,7,0,0,0,3,0,3,0,3,0
+AccountSystemLogic,za.ac.nwu.acsys.logic.flow.impl,ModifyAccountTypeFlowImpl,18,0,0,0,5,0,3,0,3,0
 AccountSystemLogic,za.ac.nwu.acsys.logic.flow.impl,CreateAccountInfoFlowImpl,38,0,0,0,11,0,3,0,3,0
 AccountSystemLogic,za.ac.nwu.acsys.logic.flow.impl,ModifyAccountInfoFlowImpl,7,0,0,0,2,0,2,0,2,0
 AccountSystemLogic,za.ac.nwu.acsys.logic.flow.impl,ModifyAccountTransactionFlowImpl,7,0,0,0,2,0,2,0,2,0
-AccountSystemLogic,za.ac.nwu.acsys.logic.flow.impl,FetchAccountInfoFlowImpl,26,0,0,0,7,0,5,0,5,0
-AccountSystemLogic,za.ac.nwu.acsys.logic.flow.impl,CreateAccountTransactionFlowImpl,201,0,6,0,45,0,8,0,5,0
+AccountSystemLogic,za.ac.nwu.acsys.logic.flow.impl,FetchAccountInfoFlowImpl,32,0,0,0,8,0,6,0,6,0
+AccountSystemLogic,za.ac.nwu.acsys.logic.flow.impl,CreateAccountTransactionFlowImpl,154,0,4,0,36,0,6,0,4,0
 AccountSystemLogic,za.ac.nwu.acsys.logic.flow.impl,CreateAccountTypeFlowImpl,26,0,2,0,8,0,4,0,3,0
 AccountSystemLogic,za.ac.nwu.acsys.logic.flow.impl,FetchAccountTypeFlowImpl,22,0,0,0,7,0,5,0,5,0
 AccountSystemLogic,za.ac.nwu.acsys.logic.flow.impl,Modulo,15,0,2,0,4,0,3,0,2,0
