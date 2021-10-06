@@ -55,7 +55,7 @@ public class AccountInfoTranslatorImpl implements AccountInfoTranslator {
     public AccountInfo getAccountInfoAddById(Long accountInfo, Long amount) {
         try{
             LOGGER.info("The accountId te update is {} and the amount is {}", accountInfo, amount);
-            accountInfoRepository.getAccountAddBalanceById(accountInfo, amount);
+            accountInfoRepository.updateAccountAddBalanceById(accountInfo, amount);
             LOGGER.info("The accountId te get is {}", accountInfo);
             return accountInfoRepository.getAccountBalanceById(accountInfo);
         }catch (Exception e){
@@ -67,7 +67,7 @@ public class AccountInfoTranslatorImpl implements AccountInfoTranslator {
     public AccountInfo getAccountInfoSubtractById(Long accountInfo, Long amount) {
         try{
             LOGGER.info("The accountId te update is {} and the amount is {}", accountInfo, amount);
-            accountInfoRepository.getAccountSubtractBalanceById(accountInfo, amount);
+            accountInfoRepository.updateAccountSubtractBalanceById(accountInfo, amount);
             LOGGER.info("The accountId te get is {}", accountInfo);
             return accountInfoRepository.getAccountBalanceById(accountInfo);
         }catch (Exception e){

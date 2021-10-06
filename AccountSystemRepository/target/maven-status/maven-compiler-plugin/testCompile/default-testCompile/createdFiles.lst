@@ -1,2 +1,4 @@
-za\ac\nwu\acsys\repo\config\RepositoryTestConfig.class
 za\ac\nwu\acsys\repo\persistence\AccountTypeRepositoryTest.class
+za\ac\nwu\acsys\repo\persistence\AccountTransactionRepositoryTest.class
+za\ac\nwu\acsys\repo\config\RepositoryTestConfig.class
+za\ac\nwu\acsys\repo\persistence\AccountInfoRepositoryTest.class

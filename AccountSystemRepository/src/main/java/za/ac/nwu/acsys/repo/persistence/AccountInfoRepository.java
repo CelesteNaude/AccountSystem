@@ -24,7 +24,7 @@ public interface AccountInfoRepository extends JpaRepository<AccountInfo, Long> 
             "   SET " +
             "       BALANCE = BALANCE + :amount" +
             "   WHERE INFO_ID = :accountInfo ", nativeQuery = true)
-    void getAccountAddBalanceById(Long accountInfo, Long amount);
+    void updateAccountAddBalanceById(Long accountInfo, Long amount);
 
 
     @Modifying
@@ -33,5 +33,5 @@ public interface AccountInfoRepository extends JpaRepository<AccountInfo, Long> 
             "   SET " +
             "       BALANCE = BALANCE - :amount" +
             "   WHERE INFO_ID = :accountInfo ", nativeQuery = true)
-    void getAccountSubtractBalanceById(Long accountInfo, Long amount);
+    void updateAccountSubtractBalanceById(Long accountInfo, Long amount);
 }
