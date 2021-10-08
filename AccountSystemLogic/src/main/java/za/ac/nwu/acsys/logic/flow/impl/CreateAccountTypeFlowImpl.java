@@ -15,7 +15,7 @@ import java.time.LocalDate;
 @Component("createAccountTypeFlowName")
 public class CreateAccountTypeFlowImpl implements CreateAccountTypeFlow {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(CreateAccountTransactionFlowImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CreateAccountTypeFlowImpl.class);
 
     private final AccountTypeTranslator accountTypeTranslator;
 

@@ -9,7 +9,6 @@ za\ac\nwu\acsys\logic\flow\ModifyAccountInfoFlow.class
 za\ac\nwu\acsys\logic\flow\CreateAccountTransactionFlow.class
 za\ac\nwu\acsys\logic\flow\impl\ModifyAccountTransactionFlowImpl.class
 za\ac\nwu\acsys\logic\flow\impl\FetchAccountTransactionFlowImpl.class
-za\ac\nwu\acsys\logic\flow\impl\Modulo.class
 za\ac\nwu\acsys\logic\flow\ModifyAccountTransactionFlow.class
 za\ac\nwu\acsys\logic\flow\impl\FetchAccountTypeFlowImpl.class
 za\ac\nwu\acsys\logic\flow\ModifyAccountTypeFlow.class

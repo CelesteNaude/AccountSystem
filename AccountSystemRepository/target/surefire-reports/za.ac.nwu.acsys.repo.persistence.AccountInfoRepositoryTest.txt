@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: za.ac.nwu.acsys.repo.persistence.AccountInfoRepositoryTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 18.583 s - in za.ac.nwu.acsys.repo.persistence.AccountInfoRepositoryTest

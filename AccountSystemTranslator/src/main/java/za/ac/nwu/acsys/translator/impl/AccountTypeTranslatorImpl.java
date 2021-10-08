@@ -66,19 +66,31 @@ public class AccountTypeTranslatorImpl implements AccountTypeTranslator {
 
     @Override
     public AccountType getAccountTypeDbEntityByMnemonic(String accountType) {
-        return accountTypeRepository.getAccountTypeByMnemonic(accountType);
+        try{
+            return accountTypeRepository.getAccountTypeByMnemonic(accountType);
+        } catch (Exception e) {
+            throw new RuntimeException("Unable to read from the DB", e);
+        }
     }
 
     @Override
     public AccountTypeDto updateAccountType(String mnemonic, String newAccountTypeName, LocalDate newCreationDate) {
-        accountTypeRepository.updateAccountType(mnemonic,newAccountTypeName,newCreationDate);
-        return accountTypeRepository.getAccountTypeDtoByMnemonic(mnemonic);
+        try{
+            accountTypeRepository.updateAccountType(mnemonic,newAccountTypeName,newCreationDate);
+            return accountTypeRepository.getAccountTypeDtoByMnemonic(mnemonic);
+        } catch (Exception e) {
+            throw new RuntimeException("Unable to update entity in the DB", e);
+        }
     }
 
     @Override
     public AccountTypeDto deleteAccountType(String mnemonic) {
-        accountTypeRepository.deleteAccountType(mnemonic);
-        return accountTypeRepository.getAccountTypeDtoByMnemonic(mnemonic);
+        try{
+            accountTypeRepository.deleteAccountType(mnemonic);
+            return accountTypeRepository.getAccountTypeDtoByMnemonic(mnemonic);
+        } catch (Exception e) {
+            throw new RuntimeException("Unable to delete entity from the DB", e);
+        }
     }
 
 }

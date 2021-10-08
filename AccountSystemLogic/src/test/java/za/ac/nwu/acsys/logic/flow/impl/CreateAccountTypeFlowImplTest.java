@@ -44,38 +44,43 @@ public class CreateAccountTypeFlowImplTest {
     public void create() {
         flow.create(new AccountTypeDto());
 
-//        AccountTypeDto accountTypeDto = new AccountTypeDto("mnemonic", "Name", LocalDate.parse("2020-01-01"));
-//        AccountTypeDto accountTypeDto2 = new AccountTypeDto("mnemonic2", "Name2", LocalDate.parse("2020-01-01"));
+        AccountTypeDto accountTypeDto = new AccountTypeDto("mnemonic", "Name", LocalDate.parse("2020-01-01"));
+
+
+
+        assertNotNull(accountTypeDto);
+        assertEquals(LocalDate.parse("2020-01-01"), accountTypeDto.getCreationDate());
+
+        verify(translator, times(1)).create(any(AccountTypeDto.class));
+
+
 //        when(translator.create(any(AccountTypeDto.class))).thenReturn(new AccountTypeDto());
 //        when(translator.create(eq(accountTypeDto))).thenReturn(accountTypeDto2);
 //        when(translator.create(any(AccountTypeDto.class))).then(returnsFirstArg());
-
-
 //        when(translator.create(any(AccountTypeDto.class))).thenThrow(new RuntimeException());
 //        try {
-
-
+//
 //            AccountTypeDto result = flow.create(new AccountTypeDto());
-
-
+//
+//
 //            flow.create(new AccountTypeDto());
 //            fail("Should throw an exception");
-
-
+//
+//
 //        assertNotNull(result);
 //        assertEquals(LocalDate.now(), result.getCreationDate());
-
-
+//
+//
 //        } catch (Exception e) {
 //        }
 
 
 //        verify(translator).create(any(AccountTypeDto.class));
-        // Check if create method gets called once
+//         Check if create method gets called once
 //        verify(translator, times(1)).create(any(AccountTypeDto.class));
-        // Check if create method never gets called
+//         Check if create method never gets called
 //        verify(translator, never()).create(any(AccountTypeDto.class));
-        // Check if create method gets called at least once
+//         Check if create method gets called at least once
 //        verify(translator, atLeastOnce()).create(any(AccountTypeDto.class));
 //        verify(translator, times(1)).create(eq(accountTypeDto));
 
