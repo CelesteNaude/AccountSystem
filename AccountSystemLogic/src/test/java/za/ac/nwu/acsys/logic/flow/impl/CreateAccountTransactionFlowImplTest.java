@@ -12,6 +12,8 @@ import za.ac.nwu.acsys.domain.persistence.AccountInfo;
 import za.ac.nwu.acsys.domain.persistence.AccountTransaction;
 import za.ac.nwu.acsys.translator.AccountTransactionTranslator;
 
+import java.time.LocalDate;
+
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
 
@@ -38,9 +40,15 @@ public class CreateAccountTransactionFlowImplTest {
 
     @Test
     public void add() {
+        AccountTransactionDto transactionDto = new AccountTransactionDto(1L, "Mnemonic", 3L, 1L, 20L, LocalDate.parse("2020-01-01"));
+        transactionDto.setTransactionId(null);
+        assertNull(transactionDto.getTransactionId());
     }
 
     @Test
     public void subtract() {
+        AccountTransactionDto transactionDto = new AccountTransactionDto(1L, "Mnemonic", 3L, 1L, 20L, LocalDate.parse("2020-01-01"));
+        transactionDto.setTransactionId(null);
+        assertNull(transactionDto.getTransactionId());
     }
 }

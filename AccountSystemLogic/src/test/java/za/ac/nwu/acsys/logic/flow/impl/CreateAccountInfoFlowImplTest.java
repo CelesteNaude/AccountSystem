@@ -47,5 +47,8 @@ public class CreateAccountInfoFlowImplTest {
 
     @Test
     public void create() {
+        AccountInfoDto accountInfoDto = new AccountInfoDto(1L, "mnemonic", 3L, 100L);
+        accountInfoDto.setAccountInfoId(null);
+        assertNull(accountInfoDto.getAccountInfoId());
     }
 }

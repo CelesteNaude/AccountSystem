@@ -1,6 +1,5 @@
 package za.ac.nwu.acsys.web.sb.controller;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,12 +13,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import za.ac.nwu.acsys.domain.dto.AccountInfoDto;
-import za.ac.nwu.acsys.domain.dto.AccountTypeDto;
 import za.ac.nwu.acsys.logic.flow.CreateAccountInfoFlow;
 import za.ac.nwu.acsys.logic.flow.FetchAccountInfoFlow;
-import za.ac.nwu.acsys.logic.flow.ModifyAccountInfoFlow;
-
-import java.time.LocalDate;
 
 import static org.junit.Assert.*;
 import static org.mockito.AdditionalAnswers.returnsFirstArg;
