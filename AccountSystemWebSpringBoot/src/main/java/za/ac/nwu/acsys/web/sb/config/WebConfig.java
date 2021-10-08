@@ -1,6 +1,5 @@
 package za.ac.nwu.acsys.web.sb.config;
 
-// Checked
 // Standard code --> copy and paste for other projects
 
 import org.springframework.context.annotation.ComponentScan;

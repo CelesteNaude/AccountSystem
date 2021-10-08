@@ -16,12 +16,11 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import java.util.Collections;
 
-import java.util.Collections;
 
 @Configuration
 @EnableSwagger2
 @Import(springfox.bean.validators.configuration.BeanValidatorPluginsConfiguration.class)
-<span class="nc" id="L24">public class SwaggerConfiguration {</span>
+<span class="nc" id="L23">public class SwaggerConfiguration {</span>
 
 
     // Declare generic values to upgrade versions easier
@@ -36,16 +35,16 @@ import java.util.Collections;
 
     @Bean
     public Docket api() {
-<span class="nc" id="L39">        return new Docket(DocumentationType.SWAGGER_2)</span>
-<span class="nc" id="L40">                .select()</span>
-<span class="nc" id="L41">                .apis(RequestHandlerSelectors.withClassAnnotation(RestController.class))</span>
-<span class="nc" id="L42">                .paths(PathSelectors.any())</span>
-<span class="nc" id="L43">                .build()</span>
-<span class="nc" id="L44">                .pathMapping(&quot;/&quot;)</span>
-<span class="nc" id="L45">                .apiInfo(apiInfo());</span>
+<span class="nc" id="L38">        return new Docket(DocumentationType.SWAGGER_2)</span>
+<span class="nc" id="L39">                .select()</span>
+<span class="nc" id="L40">                .apis(RequestHandlerSelectors.withClassAnnotation(RestController.class))</span>
+<span class="nc" id="L41">                .paths(PathSelectors.any())</span>
+<span class="nc" id="L42">                .build()</span>
+<span class="nc" id="L43">                .pathMapping(&quot;/&quot;)</span>
+<span class="nc" id="L44">                .apiInfo(apiInfo());</span>
     }
     private ApiInfo apiInfo() {
-<span class="nc" id="L48">        return new ApiInfo(</span>
+<span class="nc" id="L47">        return new ApiInfo(</span>
                 applicationName,
                 applicationDescription,
                 applicationVersion,
@@ -53,7 +52,7 @@ import java.util.Collections;
                 new Contact(&quot;Your Name or Team Name&quot;, &quot;&quot;, &quot;email address&quot;),
                 &quot;&quot;,
                 &quot;&quot;,
-<span class="nc" id="L56">                Collections.emptyList());</span>
+<span class="nc" id="L55">                Collections.emptyList());</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

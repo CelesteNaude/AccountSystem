@@ -2,10 +2,8 @@ package za.ac.nwu.acsys.logic.flow.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 import za.ac.nwu.acsys.domain.dto.AccountTransactionDto;
-import za.ac.nwu.acsys.domain.dto.AccountTypeDto;
 import za.ac.nwu.acsys.domain.persistence.AccountInfo;
 import za.ac.nwu.acsys.domain.persistence.AccountTransaction;
 import za.ac.nwu.acsys.domain.persistence.AccountType;
@@ -16,7 +14,6 @@ import za.ac.nwu.acsys.translator.AccountTransactionTranslator;
 
 import javax.transaction.Transactional;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 @Transactional
 @Component("createAccountTransactionFlowName")

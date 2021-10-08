@@ -1,6 +1,5 @@
 package za.ac.nwu.acsys.domain.persistence;
 
-import za.ac.nwu.acsys.domain.dto.AccountTypeDto;
 
 import javax.persistence.*;
 import java.io.Serializable;

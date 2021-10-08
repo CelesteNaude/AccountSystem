@@ -1,23 +1,19 @@
 package za.ac.nwu.acsys.web.sb.controller;
 
-// checked
 
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import za.ac.nwu.acsys.domain.dto.AccountTransactionDto;
-import za.ac.nwu.acsys.domain.dto.AccountTypeDto;
 import za.ac.nwu.acsys.domain.service.GeneralResponse;
 import za.ac.nwu.acsys.logic.flow.CreateAccountTransactionFlow;
 import za.ac.nwu.acsys.logic.flow.FetchAccountTransactionFlow;
 
-import java.time.LocalDate;
 
 @RestController
 @RequestMapping("account-transaction")
@@ -73,7 +69,7 @@ public class AccountTransactionController {
             @ApiResponse(code = 500, message = "Internal Server Error", response = GeneralResponse.class)})
     public ResponseEntity<GeneralResponse<AccountTransactionDto>> getAccountTransaction(
             @ApiParam(value = "The transactionId that uniquely identifies the AccountType.",
-                    example = "1",
+                    example = "5",
                     name = "transactionId",
                     required = true)
             @PathVariable("transactionId") final Long transactionId) {

@@ -1,6 +1,5 @@
 package za.ac.nwu.acsys.translator;
 
-import za.ac.nwu.acsys.domain.dto.AccountTransactionDto;
 import za.ac.nwu.acsys.domain.dto.AccountTypeDto;
 import za.ac.nwu.acsys.domain.persistence.AccountType;
 

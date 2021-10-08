@@ -3,8 +3,6 @@
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import za.ac.nwu.acsys.domain.dto.AccountTransactionDto;
-import za.ac.nwu.acsys.domain.dto.AccountTypeDto;
-import za.ac.nwu.acsys.domain.persistence.AccountTransaction;
 import za.ac.nwu.acsys.logic.flow.FetchAccountTransactionFlow;
 import za.ac.nwu.acsys.translator.AccountTransactionTranslator;
 import za.ac.nwu.acsys.translator.AccountTypeTranslator;
@@ -20,15 +18,15 @@ public class FetchAccountTransactionFlowImpl implements FetchAccountTransactionF
 
     @Autowired
     public FetchAccountTransactionFlowImpl(AccountTransactionTranslator accountTransactionTranslator,
-<span class="fc" id="L23">                                           AccountTypeTranslator accountTypeTranslator) {</span>
-<span class="fc" id="L24">        this.accountTransactionTranslator = accountTransactionTranslator;</span>
-<span class="fc" id="L25">        this.accountTypeTranslator = accountTypeTranslator;</span>
-<span class="fc" id="L26">    }</span>
+<span class="fc" id="L21">                                           AccountTypeTranslator accountTypeTranslator) {</span>
+<span class="fc" id="L22">        this.accountTransactionTranslator = accountTransactionTranslator;</span>
+<span class="fc" id="L23">        this.accountTypeTranslator = accountTypeTranslator;</span>
+<span class="fc" id="L24">    }</span>
 
 
     @Override
     public AccountTransactionDto getAccountTransax(Long transactionId) {
-<span class="fc" id="L31">        return accountTransactionTranslator.getAccountTransaxById(transactionId);</span>
+<span class="fc" id="L29">        return accountTransactionTranslator.getAccountTransaxById(transactionId);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

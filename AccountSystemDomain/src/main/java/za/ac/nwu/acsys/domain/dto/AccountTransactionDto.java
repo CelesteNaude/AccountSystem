@@ -119,13 +119,13 @@ public class AccountTransactionDto implements Serializable {
         this.amount = amount;
     }
 
-        @ApiModelProperty(position = 6,
-            value = "AccountTransaction Transaction Date",
-            name = "TransactionDate",
-            notes = "The date on which the AccountTransaction was occurred",
-            dataType = "java.lang.LocalDate",
-            example = "2020-04-01",
-            required = true)
+//        @ApiModelProperty(position = 6,
+//            value = "AccountTransaction Transaction Date",
+//            name = "TransactionDate",
+//            notes = "The date on which the AccountTransaction was occurred",
+//            dataType = "java.lang.LocalDate",
+//            example = "2020-04-01",
+//            required = true)
     public LocalDate getTransactionDate() {
         return transactionDate;
     }

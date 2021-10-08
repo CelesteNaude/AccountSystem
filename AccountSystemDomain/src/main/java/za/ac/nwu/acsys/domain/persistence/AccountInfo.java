@@ -31,7 +31,6 @@ public class AccountInfo implements Serializable {
         this.accountType = accountType;
         this.memberId = memberId;
         this.balance = balance;
-        this.accountTransactions = accountTransactions;
     }
 
     @Id
